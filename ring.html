@@ -71,8 +71,8 @@
         //     alert('La media query se cumple');
         // }
         if(window.innerWidth <= 1024){
-            wi = 7.0;
-            he= 7.0;
+            wi = 6.0;
+            he= 6.0;
             // console.log(window.innerWidth)
         }
     }
@@ -88,9 +88,9 @@
     circle.style.maxWidth = parseFloat(newV ).toFixed(1) + 'mm';
     circle.style.maxHeight = parseFloat(newV ).toFixed(1) + 'mm';
     // Update the label text
-    sizeLabel.textContent = parseFloat(sizeInMm).toFixed(1) + 'mm';
+    sizeLabel.textContent = (parseFloat(sizeInMm)-8).toFixed(1) + 'mm';
     // Update the slider value text
-    sliderValue.textContent = parseFloat(sizeInMm).toFixed(1) + 'mm';
+    sliderValue.textContent = (parseFloat(sizeInMm)-8).toFixed(1) + 'mm';
   }
 </script>
 
