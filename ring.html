@@ -52,7 +52,7 @@
     </div>
     <div class="slider-container">
         <label for="circleSize">Ring size (mm):</label>
-        <input type="range" id="circleSize" value="15.0" min="9.0" max="25.0" step="0.1" oninput="updateCircleSize(this.value)" />
+        <input type="range" id="circleSize" value="15.0" min="9.0" max="30.0" step="0.1" oninput="updateCircleSize(this.value)" />
         <span id="sliderValue">15.0mm</span>
       </div>
 
@@ -66,16 +66,59 @@
     let he = 0.0;
     window.onload= start();
     function start(){
+        // let circleInit = document.getElementById('circleSize');
+        // circleInit.setAttribute('value','6,5')
         // var mediaqueryList = window.matchMedia("(min-width: 500px)");
         // if(mediaqueryList.matches) {
         //     alert('La media query se cumple');
         // }
         if(window.innerWidth <= 1024){
-            wi = 6.0;
-            he= 6.0;
+            wi = 5.0;
+            he= 5.0;
             // console.log(window.innerWidth)
+        }else{
+            wi= -1
+            he = -1
         }
     }
+
+function convertirTalla(size){
+    let talla= 0;
+    if(size >= 14.0 && size <= 14.3 ){
+        talla = 3
+    }
+    if(size >= 14.3 && size <= 14.7 ){
+        talla = 3.5
+    }
+    if(size >= 14.7 && size <= 15.1 ){
+        talla = 4
+    }
+    if(size >= 15.1 && size <= 15.5 ){
+        talla = 4.5
+    }
+    if(size >= 15.6 && size <= 15.9 ){
+        talla = 5
+    }
+    if(size >= 16.0 && size <= 16.4 ){
+        talla = 5.5
+    }
+    if(size >= 16.4 && size <= 16.8 ){
+        talla = 6
+    }
+    if(size >= 16.8 && size <= 17.2 ){
+        talla = 6.5
+    }
+    if(size >= 17.3 && size <= 17.6 ){
+        talla = 7
+    }
+    if(size >= 17.7 && size <= 18.1 ){
+        talla = 7.5
+    }
+    if(size >= 18.2 && size <= 18.5 ){
+        talla = 8
+    }
+    return talla
+}
   function updateCircleSize(sizeInMm) {
     let newV = parseFloat(sizeInMm) + wi;
     
@@ -88,9 +131,11 @@
     circle.style.maxWidth = parseFloat(newV ).toFixed(1) + 'mm';
     circle.style.maxHeight = parseFloat(newV ).toFixed(1) + 'mm';
     // Update the label text
-    sizeLabel.textContent = (parseFloat(sizeInMm)-8).toFixed(1) + 'mm';
+    let talla = convertirTalla((parseFloat(sizeInMm)-8.5))
+    sizeLabel.textContent = (talla)
+
     // Update the slider value text
-    sliderValue.textContent = (parseFloat(sizeInMm)-8).toFixed(1) + 'mm';
+    sliderValue.textContent = (parseFloat(sizeInMm)-8.5).toFixed(1) + 'mm';
   }
 </script>
 
