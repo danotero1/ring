@@ -43,7 +43,7 @@
 </head>
 <body>
     <div class="circle" id="circle">
-      <span class="circle-size-label" id="circleSizeLabel">15.0mm</span>
+      <span class="circle-size-label" id="circleSizeLabel">3.0mm</span>
     </div>
 <div class="row">
   <div class="col-md-12">
@@ -52,8 +52,8 @@
     </div>
     <div class="slider-container">
         <label for="circleSize">Ring size (mm):</label>
-        <input type="range" id="circleSize" value="15.0" min="9.0" max="30.0" step="0.1" oninput="updateCircleSize(this.value)" />
-        <span id="sliderValue">15.0mm</span>
+        <input type="range" id="circleSize" value="3" min="22.5" max="32.5" step="0.1" oninput="updateCircleSize(this.value)" />
+        <span id="sliderValue">14.0mm</span>
       </div>
 
   </div>
@@ -80,6 +80,7 @@
             wi= -1
             he = -1
         }
+        updateCircleSize(22.5)
     }
 
 function convertirTalla(size){
@@ -153,6 +154,7 @@ function convertirTalla(size){
     return talla
 }
   function updateCircleSize(sizeInMm) {
+ 
     let newV = parseFloat(sizeInMm) + wi;
     
     var circle = document.getElementById('circle');
